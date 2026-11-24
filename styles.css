@@ -85,12 +85,19 @@ header {
   padding: 64px 0 56px;
 }
 
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
 .hero .icon {
-  width: 84px;
-  height: 84px;
-  border-radius: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   box-shadow: var(--shadow-md);
-  margin-bottom: 24px;
 }
 
 .hero h1 {
@@ -110,7 +117,6 @@ header {
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  margin-bottom: 20px;
 }
 
 .hero p.lede {
