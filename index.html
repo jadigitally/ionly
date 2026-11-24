@@ -31,8 +31,13 @@
         encrypted on your own Mac, with nothing ever sent to the cloud.
       </p>
 
-      <form class="signup" id="notify-form">
-        <input type="email" id="notify-email" placeholder="you@example.com" required aria-label="Email address" />
+      <form class="signup ml-block-form" id="notify-form"
+            action="https://assets.mailerlite.com/jsonp/1737253/forms/205033091295610342/subscribe"
+            method="post" target="_blank">
+        <input type="email" id="notify-email" name="fields[email]" placeholder="you@example.com"
+               required aria-label="Email address" autocomplete="email" />
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
         <button type="submit" class="btn">Notify me at launch</button>
       </form>
       <p class="form-success" id="notify-success">Thanks — we'll let you know the moment it's ready.</p>
@@ -160,13 +165,17 @@
   </footer>
 
   <script>
-    // Placeholder handler: no backend is wired up yet. Swap this for a real
-    // signup endpoint before launch — see README.md.
-    document.getElementById('notify-form').addEventListener('submit', function (e) {
-      e.preventDefault();
+    // MailerLite calls this global function (named after this form's numeric
+    // id) once the subscribe request succeeds, instead of navigating away.
+    function ml_webform_success_48994911() {
+      document.getElementById('notify-form').style.display = 'none';
       document.getElementById('notify-success').style.display = 'block';
-      this.reset();
-    });
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
+  <script>
+    // MailerLite's own "form was shown" ping — no cookies, no personal data.
+    fetch('https://assets.mailerlite.com/jsonp/1737253/forms/205033091295610342/takel');
   </script>
 
 </body>
