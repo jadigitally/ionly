@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ionly — Encrypted Private Vault</title>
+  <meta name="description" content="Ionly is a local, password-protected file vault for your Mac. Your photos, videos and documents stay encrypted on your own computer — nothing is ever uploaded." />
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <img src="assets/icon.png" alt="" />
+        <span>Ionly</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <img class="icon" src="assets/icon.png" alt="Ionly app icon" />
+      <span class="slogan">Encrypted Private Vault</span>
+      <h1>Your files, encrypted,<br />on your computer only.</h1>
+      <p class="lede">
+        Ionly keeps your photos, videos and documents locked behind a password —
+        encrypted on your own Mac, with nothing ever sent to the cloud.
+      </p>
+
+      <form class="signup" id="notify-form">
+        <input type="email" id="notify-email" placeholder="you@example.com" required aria-label="Email address" />
+        <button type="submit" class="btn">Notify me at launch</button>
+      </form>
+      <p class="form-success" id="notify-success">Thanks — we'll let you know the moment it's ready.</p>
+      <p class="form-note">No spam. One email, when Ionly is ready to download.</p>
+
+      <div class="badge-row">
+        <span class="badge">Free to download</span>
+        <span class="badge">macOS now · Windows later</span>
+        <span class="badge">No account required</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="wrap">
+      <h2>Built to be used, not administered</h2>
+      <div class="grid">
+
+        <div class="card">
+          <div class="glyph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Nothing leaves your computer</h3>
+          <p>No cloud sync, no analytics, no servers. Your encrypted files stay on the machine you added them on.</p>
+        </div>
+
+        <div class="card">
+          <div class="glyph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <h3>No technical skill needed</h3>
+          <p>Download, open, drag to Applications. Set a password and you're in — no terminal, no setup scripts.</p>
+        </div>
+
+        <div class="card">
+          <div class="glyph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="18" cy="8" r="3"/><path d="M21 21v-1.5a3.5 3.5 0 0 0-3-3.46"/></svg>
+          </div>
+          <h3>Separate vaults for everyone</h3>
+          <p>Shared family or work computer? Every person gets their own password-protected vault. No one else can see in.</p>
+        </div>
+
+        <div class="card">
+          <div class="glyph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
+          </div>
+          <h3>Browse, don't dig through folders</h3>
+          <p>A real gallery with thumbnails, folders, search and sorting — and a built-in viewer for images, video and PDFs.</p>
+        </div>
+
+        <div class="card">
+          <div class="glyph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <h3>Every file, exactly as you left it</h3>
+          <p>Uploads keep their original date and are checksum-verified on the way back out. Download everything as one ZIP, any time.</p>
+        </div>
+
+        <div class="card">
+          <div class="glyph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7z"/></svg>
+          </div>
+          <h3>Designed to be checked, not just trusted</h3>
+          <p>No vague "military-grade" claims — the encryption design is published in plain language. See the Security section below.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="security">
+    <div class="wrap">
+      <h2>How Ionly actually protects your files</h2>
+      <ul>
+        <li><span class="dot"></span> Each file is encrypted with AES-256-GCM, using its own key — so one leaked key never exposes everything.</li>
+        <li><span class="dot"></span> Your password never leaves your computer. It's run through scrypt, a slow key-derivation function built to resist brute-force cracking, to unlock your personal encryption key.</li>
+        <li><span class="dot"></span> File names, folders and dates are encrypted too — not just the contents.</li>
+        <li><span class="dot"></span> Tampering or truncating a file is detected automatically, not silently accepted.</li>
+        <li><span class="dot"></span> The app runs a small local server used only by Ionly itself, locked to your own computer — it never accepts a connection from anywhere else.</li>
+      </ul>
+      <p class="fine">
+        There is no password recovery. If you forget your password, your files cannot be
+        recovered by Ionly, by us, or by anyone else — that's the trade-off of real encryption.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+
+      <div class="faq-item">
+        <h3>Is this really free?</h3>
+        <p>Yes. Ionly is free to download and use. Security and bug-fix updates will be released as needed.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What happens if I forget my password?</h3>
+        <p>Your vault cannot be recovered. There is no backdoor, no reset link, and no support override — the encryption is real. Choose a password you'll remember, or store it in a password manager.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does Ionly upload anything, ever?</h3>
+        <p>No. Ionly has no cloud sync, no analytics and no crash reporting. The only network activity is an occasional check for app updates — your files never leave your computer.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Which computers does it run on?</h3>
+        <p>macOS today, on both Apple Silicon and Intel Macs. A Windows version is planned.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I use it on a shared family or office computer?</h3>
+        <p>Yes — that's exactly what it's for. Each person creates their own password-protected vault on the same machine, and no one can see into anyone else's.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>Ionly — a local, encrypted file vault. No cloud. No tracking.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Placeholder handler: no backend is wired up yet. Swap this for a real
+    // signup endpoint before launch — see README.md.
+    document.getElementById('notify-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('notify-success').style.display = 'block';
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
