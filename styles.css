@@ -1,16 +1,17 @@
 /* Ionly marketing site — same palette as the app (see Ionly/CLAUDE.md). */
 
 :root {
-  --bg: #f6f7f8;
-  --surface: #ffffff;
-  --border: #e3e6e8;
-  --text: #14181b;
-  --muted: #5f6b73;
-  --green: #0b8253;
-  --green-hover: #096b44;
-  --green-tint: #e7f5ee;
-  --shadow-sm: 0 1px 2px rgba(20, 24, 27, 0.06);
-  --shadow-md: 0 8px 24px rgba(20, 24, 27, 0.08);
+  --bg: linear-gradient(180deg, #fbf8f2 0%, #ece3d2 100%);
+  --surface: #fffefb;
+  --card-bg: linear-gradient(135deg, #fffefb 0%, #f6ecdb 100%);
+  --border: #e7ddc9;
+  --text: #221d17;
+  --muted: #6b6256;
+  --green: #3f6f63;
+  --green-hover: #2b4f46;
+  --green-tint: #eef1e8;
+  --shadow-sm: 0 1px 2px rgba(34, 29, 23, 0.08);
+  --shadow-md: 0 8px 24px rgba(34, 29, 23, 0.1);
   --radius: 14px;
   --radius-sm: 8px;
   --max-width: 960px;
@@ -18,14 +19,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0f1214;
-    --surface: #171b1e;
-    --border: #262c30;
-    --text: #e8ecee;
-    --muted: #8d99a1;
-    --green: #2fbf86;
-    --green-hover: #3ad197;
-    --green-tint: #15261f;
+    --bg: linear-gradient(180deg, #14241f 0%, #0d1714 100%);
+    --surface: #17251f;
+    --card-bg: linear-gradient(160deg, #1b2f28 0%, #0f1b17 100%);
+    --border: #27372f;
+    --text: #f2ede2;
+    --muted: #a79f8f;
+    --green: #5fa393;
+    --green-hover: #7bbcac;
+    --green-tint: #16251f;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
   }
@@ -251,7 +253,7 @@ header {
 }
 
 .card {
-  background: var(--surface);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
