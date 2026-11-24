@@ -223,15 +223,41 @@ header .wrap {
 }
 
 .slogan {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: var(--green);
   background: var(--green-tint);
-  padding: 4px 12px;
+  border: 1px solid var(--border);
+  padding: 4px 14px 4px 12px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+/* Small "this is live" indicator — a lime dot with a soft breathing glow,
+   used in the slogan badge and the section eyebrows. */
+.pulse-dot {
+  display: inline-block;
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c5f36b;
+  animation: pulse-glow 2.6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 243, 107, 0.5);
+    opacity: 0.8;
+  }
+  50% {
+    box-shadow: 0 0 7px 3px rgba(197, 243, 107, 0.55);
+    opacity: 1;
+  }
 }
 
 .hero p.lede {
@@ -360,12 +386,21 @@ header .wrap {
    header nav links, just uppercase and a little looser. */
 .eyebrow {
   text-align: center;
+  margin: 0 0 14px;
+}
+
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-size: 14px;
   font-weight: 500;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin: 0 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 14px 5px 12px;
 }
 
 .grid {
