@@ -154,15 +154,38 @@ header {
   margin: 0 auto;
 }
 
-.signup input[type="email"] {
+/* MailerLite's embed wraps the real input/button in its own divs (needed
+   for its script to find and intercept the form) — unwrap them for layout
+   purposes so .signup still lays out as a plain flex row. */
+.signup .ml-form-formContent,
+.signup .ml-form-fieldRow,
+.signup .ml-form-embedSubmit {
+  display: contents;
+}
+
+.signup .ml-field-group {
   flex: 1;
   min-width: 220px;
+}
+
+.signup input[type="email"] {
+  width: 100%;
   padding: 13px 16px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
   font-size: 15px;
+}
+
+.signup-wrap {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.signup-wrap .signup {
+  max-width: none;
+  margin: 0;
 }
 
 .signup input[type="email"]:focus {
@@ -197,10 +220,9 @@ header {
 }
 
 .form-success {
-  display: none;
   color: var(--green);
   font-weight: 600;
-  margin-top: 16px;
+  margin: 0;
 }
 
 /* -------------------------------------------------------------- features */

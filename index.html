@@ -31,16 +31,31 @@
         encrypted on your own Mac, with nothing ever sent to the cloud.
       </p>
 
-      <form class="signup ml-block-form" id="notify-form"
-            action="https://assets.mailerlite.com/jsonp/1737253/forms/205033091295610342/subscribe"
-            method="post" target="_blank">
-        <input type="email" id="notify-email" name="fields[email]" placeholder="you@example.com"
-               required aria-label="Email address" autocomplete="email" />
-        <input type="hidden" name="ml-submit" value="1" />
-        <input type="hidden" name="anticsrf" value="true" />
-        <button type="submit" class="btn">Notify me at launch</button>
-      </form>
-      <p class="form-success" id="notify-success">Thanks — we'll let you know the moment it's ready.</p>
+      <div id="mlb2-48994911" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-48994911 signup-wrap">
+        <div class="ml-form-embedBody row-form">
+          <form class="ml-block-form signup" id="notify-form"
+                action="https://assets.mailerlite.com/jsonp/1737253/forms/205033091295610342/subscribe"
+                method="post" target="_blank">
+            <div class="ml-form-formContent">
+              <div class="ml-form-fieldRow ml-last-item">
+                <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                  <input type="email" id="notify-email" name="fields[email]" placeholder="you@example.com"
+                         required aria-label="Email address" autocomplete="email" />
+                </div>
+              </div>
+            </div>
+            <input type="hidden" name="ml-submit" value="1" />
+            <div class="ml-form-embedSubmit">
+              <button type="submit" class="btn primary">Notify me at launch</button>
+              <button disabled="disabled" style="display: none;" type="button" class="loading">Sending…</button>
+            </div>
+            <input type="hidden" name="anticsrf" value="true" />
+          </form>
+        </div>
+        <div class="ml-form-successBody row-success" style="display: none">
+          <p class="form-success">Thanks — we'll let you know the moment it's ready.</p>
+        </div>
+      </div>
       <p class="form-note">No spam. One email, when Ionly is ready to download. See our
         <a href="privacy.html">Privacy Policy</a>.</p>
 
@@ -165,11 +180,12 @@
   </footer>
 
   <script>
-    // MailerLite calls this global function (named after this form's numeric
-    // id) once the subscribe request succeeds, instead of navigating away.
+    // MailerLite's own success callback — toggles the two containers above
+    // once their script intercepts the submit instead of navigating away.
     function ml_webform_success_48994911() {
-      document.getElementById('notify-form').style.display = 'none';
-      document.getElementById('notify-success').style.display = 'block';
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-48994911 .row-success').show();
+      $('.ml-subscribe-form-48994911 .row-form').hide();
     }
   </script>
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519"></script>
