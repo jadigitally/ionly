@@ -69,6 +69,13 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+#features,
+#security,
+#faq {
+  scroll-margin-top: 92px;
 }
 
 body {
@@ -92,7 +99,12 @@ a {
 /* ---------------------------------------------------------------- header */
 
 header {
-  padding: 24px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 18px 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
 header .wrap {
@@ -197,9 +209,9 @@ header .wrap {
 }
 
 .hero .icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
   box-shadow: var(--shadow-md);
 }
 
@@ -342,6 +354,18 @@ header .wrap {
   font-size: 28px;
   letter-spacing: -0.01em;
   margin: 0 0 40px;
+}
+
+/* Small accent label above a section heading — same type styling as the
+   header nav links, just uppercase and a little looser. */
+.eyebrow {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
 }
 
 .grid {
