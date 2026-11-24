@@ -33,6 +33,36 @@
   }
 }
 
+/* Manual theme switch (header button) overrides the system preference above,
+   regardless of which way prefers-color-scheme points. */
+:root[data-theme="light"] {
+  --bg: linear-gradient(180deg, #fbf8f2 0%, #ece3d2 100%);
+  --surface: #fffefb;
+  --card-bg: linear-gradient(135deg, #fffefb 0%, #f6ecdb 100%);
+  --border: #e7ddc9;
+  --text: #221d17;
+  --muted: #6b6256;
+  --green: #3f6f63;
+  --green-hover: #2b4f46;
+  --green-tint: #eef1e8;
+  --shadow-sm: 0 1px 2px rgba(34, 29, 23, 0.08);
+  --shadow-md: 0 8px 24px rgba(34, 29, 23, 0.1);
+}
+
+:root[data-theme="dark"] {
+  --bg: linear-gradient(180deg, #14241f 0%, #0d1714 100%);
+  --surface: #17251f;
+  --card-bg: linear-gradient(160deg, #1b2f28 0%, #0f1b17 100%);
+  --border: #27372f;
+  --text: #f2ede2;
+  --muted: #a79f8f;
+  --green: #5fa393;
+  --green-hover: #7bbcac;
+  --green-tint: #16251f;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -65,6 +95,14 @@ header {
   padding: 24px 0;
 }
 
+header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -82,6 +120,66 @@ header {
   height: 28px;
   border-radius: 7px;
 }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--green);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Icon shown = the mode a click switches TO (moon while light, sun while dark). */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  .theme-toggle .icon-sun { display: block; }
+  .theme-toggle .icon-moon { display: none; }
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 /* ------------------------------------------------------------------- hero */
 
@@ -388,5 +486,15 @@ footer a {
   .signup input[type="email"],
   .signup .btn {
     width: 100%;
+  }
+  header .wrap {
+    justify-content: center;
+    text-align: center;
+  }
+  .header-right {
+    gap: 16px;
+  }
+  .nav {
+    gap: 14px;
   }
 }
