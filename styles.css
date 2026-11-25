@@ -1,7 +1,7 @@
 /* Ionly marketing site — same palette as the app (see Ionly/CLAUDE.md). */
 
 :root {
-  --bg: linear-gradient(180deg, #ffffff 0%, #eef1f1 100%);
+  --bg: linear-gradient(180deg, #f3f3f3 0%, #eef1f1 100%);
   --surface: #ffffff;
   --card-bg: linear-gradient(135deg, #ffffff 0%, #eef2f2 100%);
   --border: #e3e7e7;
@@ -36,7 +36,7 @@
 /* Manual theme switch (header button) overrides the system preference above,
    regardless of which way prefers-color-scheme points. */
 :root[data-theme="light"] {
-  --bg: linear-gradient(180deg, #ffffff 0%, #eef1f1 100%);
+  --bg: linear-gradient(180deg, #f3f3f3 0%, #eef1f1 100%);
   --surface: #ffffff;
   --card-bg: linear-gradient(135deg, #ffffff 0%, #eef2f2 100%);
   --border: #e3e7e7;
@@ -387,6 +387,7 @@ header .wrap {
 
 .about {
   padding: 48px 0;
+  border-top: 1px solid var(--border);
 }
 
 .about h2 {
